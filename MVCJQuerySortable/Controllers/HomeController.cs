@@ -32,5 +32,10 @@ namespace MVCJQuerySortable.Controllers
 
             return View(ninjalist);
         }
+
+        public JsonResult NinjaSortable(int[] idlist)
+        {
+            return Json("");
+        }
     }
 }

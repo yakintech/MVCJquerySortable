@@ -16,14 +16,24 @@
         $(function () {
             $("#sortable").sortable({
                 stop: function (event, ui) {
-                    neworder = new Array();
+                    var Ninjalist = new Object();
+                    Ninjalist.idlist = new Array();
                     $('#sortable li').each(function () {
                         //get the id
                         var id = $(this).attr("id");
-                        neworder.push(id);
+                        Ninjalist.idlist.push(id);
                         
                     });
-                    console.log(neworder)
+
+                    $.ajax({
+                        url: "http://localhost:53421/Home/NinjaSortable/",
+                        data: Ninjalist,
+                        type: "POST",
+                        success: function () {
+                            alert("success!")
+                        }
+                    })
+                    
                 }
 
 
